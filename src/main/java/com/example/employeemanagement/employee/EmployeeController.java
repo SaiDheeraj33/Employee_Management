@@ -14,7 +14,9 @@ import java.util.UUID;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
-@RestController @RequestMapping("/v1/employees") @SecurityRequirement(name = "bearerAuth")
+import org.springframework.transaction.annotation.Transactional;
+
+@RestController @RequestMapping("/v1/employees") @SecurityRequirement(name = "bearerAuth") @Transactional
 public class EmployeeController {
     private final EmployeeRepository employees; private final DepartmentRepository departments;
     public EmployeeController(EmployeeRepository employees, DepartmentRepository departments) { this.employees=employees; this.departments=departments; }
